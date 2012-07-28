@@ -1,0 +1,99 @@
+Xcursor.theme:		pArch-32
+urxvt*urgentOnBell:     true
+URxvt.loginShell:	true
+URxvt.depth:		32
+URxvt.background:	rgba:0000/0000/0000/cccc
+URxvt.foreground:       gray90
+URxvt.color7:           gray90
+URxvt.colorBD:          #ffffff
+URxvt.cursorColor:      #e0e080
+URxvt.throughColor:     #8080f0
+URxvt.highlightColor:   #f0f0f0
+URxvt.scrollBar:       	off
+URxvt.secondaryScroll:	true
+URxvt*termName:	       	screen-256color
+URxvt.font: 		9x15
+URxvt.geometry:         154x36
+URxvt.saveLines:        8192
+
+! Extensions
+urxvt*perl-lib:        /usr/lib/urxvt/perl/
+urxvt*perl-ext-common: default,matcher,searchable-scrollback
+urxvt*urlLauncher:     /usr/bin/firefox
+urxvt*matcher.button:  1
+
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.dpi: 96
+Xft.rgba: rgb
+
+xcalc*geometry: 200x275
+xcalc.ti.bevel.background: #111111
+xcalc.ti.bevel.screen.background: Green
+xcalc.ti.bevel.screen.DEG.background: Green
+xcalc.ti.bevel.screen.DEG.foreground: Black
+xcalc.ti.bevel.screen.GRAD.background: Green
+xcalc.ti.bevel.screen.GRAD.foreground: Black
+xcalc.ti.bevel.screen.RAD.background: Green
+xcalc.ti.bevel.screen.RAD.foreground: Black
+xcalc.ti.bevel.screen.INV.background: Green
+xcalc.ti.bevel.screen.INV.foreground: Red
+xcalc.ti.bevel.screen.LCD.background: Green
+xcalc.ti.bevel.screen.LCD.foreground: Black
+xcalc.ti.bevel.screen.LCD.shadowWidth: 0
+xcalc.ti.bevel.screen.M.background: Green
+xcalc.ti.bevel.screen.M.foreground: Black
+xcalc.ti.bevel.screen.P.background: Green
+xcalc.ti.bevel.screen.P.foreground: Black
+xcalc.ti.Command.foreground: White
+xcalc.ti.Command.background: black
+xcalc.ti.button5.background: orange
+xcalc.ti.button20.background: red
+xcalc.ti.button25.background: red
+xcalc.ti.button30.background: red
+xcalc.ti.button35.background: red
+xcalc.ti.button40.background: green
+xcalc.ti.button22.background: blue
+xcalc.ti.button23.background: blue
+xcalc.ti.button24.background: blue
+xcalc.ti.button27.background: blue
+xcalc.ti.button28.background: blue
+xcalc.ti.button29.background: blue
+xcalc.ti.button32.background: blue
+xcalc.ti.button33.background: blue
+xcalc.ti.button34.background: blue
+xcalc.ti.button37.background: blue
+XCalc*Cursor:                 hand2
+XCalc*ShapeStyle:             rectangle
+
+!!colors ripped from rezza: http://metawire.org/~rezza/index.php
+*foreground:     rgb:dd/dd/dd
+*background:     rgb:22/22/22
+!black
+*color0:         rgb:19/19/19
+*color8:         rgb:25/25/25
+!red
+*color1:         rgb:80/32/32
+*color9:         rgb:98/2b/2b
+!green
+*color2:         rgb:5b/76/2f
+*color10:        rgb:89/b8/3f
+!brown/yellow
+*color3:         rgb:aa/99/43
+*color11:        rgb:ef/ef/60
+!blue
+*color4:         rgb:32/4c/80
+*color12:        rgb:2b/4f/98
+!magenta
+*color5:         rgb:70/6c/9a
+*color13:        rgb:82/6a/b1
+!cyan
+*color6:         rgb:92/b1/9e
+*color14:        rgb:a1/cd/cd
+!white
+*color7:         rgb:ff/ff/ff
+*color15:        rgb:dd/dd/dd
+

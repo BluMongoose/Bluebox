@@ -71,8 +71,9 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags ={
-   names  = { "term", "web", "chat", "video", 5, 6, 7, 8, 9 },
-   layout = { layouts[2], layouts[2], layouts[1], layouts[5], layouts[6],
+--   names  = { "term", "web", "chat", "video", 5, 6, 7, 8, 9 },
+   names = { "☠", "☢", "☣", "☫", "☬", "☸", "⚔", "☿", "♐" },
+   layout = { layouts[2], layouts[2], layouts[2], layouts[5], layouts[6],
               layouts[1], layouts[1], layouts[3], layouts[7]
 }}
 for s = 1, screen.count() do
@@ -143,12 +144,12 @@ vicious.register(rootfswidget, vicious.widgets.fs, '<span color = "#1793D1">ROOT
 -- Initialize widget
 gmailwidget = widget({ type = "textbox" })
 -- Register widget
-vicious.register(gmailwidget, vicious.widgets.gmail, '<span color = "#1793D1">Unread:</span> ${count}', 260)
+vicious.register(gmailwidget, vicious.widgets.gmail, '<span color = "#1793D1">Unread:</span> ${count}', 121)
 				   
 -- Initialize widget
 pacwidget = widget({ type = "textbox" })
 -- Register widget
-vicious.register(pacwidget, vicious.widgets.pkg, '<span color = "#1793D1">Updates:</span> $1' , 1800, "Arch")
+vicious.register(pacwidget, vicious.widgets.pkg, '<span color = "#1793D1">Updates:</span> $1' , 600, "Arch")
 
 -- Initialize widget
 weatherwidget = widget({ type = "textbox"})
@@ -197,7 +198,7 @@ vicious.register(netwidget, vicious.widgets.net, '<span color ="#1793D1">${eth0 
 
 -- Separator
 separator = widget({ type = "textbox" })
-separator.text = " :: "
+separator.text = " │ "
 
 -- Memory widget
 -- Initialize widget
@@ -324,6 +325,7 @@ end
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
+--  awful.button({ }, 2, function (c) c:kill()            end),
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
@@ -481,15 +483,16 @@ awful.rules.rules = {
       properties = { tag = tags[1][2] } },
     {rule = { class = "uzbl"},
       properties = { tag = tags[1][2] } } ,
-    {rule = { class = "Ncmpc++" , instance = "urxvtc"},
+    {rule = { class = "Ncmpc++" , instance = "urxvtd"},
       properties = { tag = tags[1][1] } },
-    {rule = { class = "htop" , instance = "urxvtc"},
+    {rule = { class = "htop" , instance = "urxvtd"},
       properties = { tag = tags[1][1] } },
     {rule = { class = "Pidgin"},
       properties = { tag = tags[1][3] } },
-    {rule = { class = "Finch" , instance = "urxvtc"},
+    {rule = { name = "finch" , instance = "urxvt"},
       properties = { tag = tags[1][3] } },
-
+    { rule = { instance = "plugin-container" },
+      properties = { floating = true } },
 }
 
 -- }}}

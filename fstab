@@ -1,0 +1,10 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>		 <type>		<options>			<dump>	<pass>
+tmpfs		/tmp		 tmpfs		nodev,nosuid			0	0
+/dev/sdb2       / 		 ext3 		defaults,noatime 		0 	1
+/dev/sdb3       /home 		 ext3 		defaults,user_xattr,noatime 	0 	2
+/dev/sdb1 	/mnt/Hivemind/ 	 ntfs-3g 	uid=blue,gid=users,relatime	0	0
+/dev/sdd1 	/mnt/GroundZero/ ntfs-3g 	uid=blue,gid=users,relatime	0	0
+/dev/disk/by-id/ata-WDC_WD20EARS-00MVWB0_WD-WMAZA2160508-part1 	/mnt/Elements/ 	 ntfs-3g 	rw,group,fmask=0022,dmask=0000,nofail,	0	0

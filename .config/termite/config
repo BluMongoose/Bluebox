@@ -1,0 +1,149 @@
+[options]
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = false
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = Monospace 10
+scrollback_lines = 1000
+search_wrap = true
+#icon_name = terminal
+#geometry = 640x480
+
+# 0.0: opaque, 1.0: transparent
+transparency = 0.3
+pseudo_transparency = false
+
+# "system", "on" or "off"
+cursor_blink = off
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+# $BROWSER is used by default
+#browser = firefox
+
+# word characters used for word selection
+# (default if unset: all graphic non-punctuation/space characters)
+#word_chars = -A-Za-z0-9,./?%&#:_=+@~
+
+[colors]
+foreground = #dcdccc
+foreground_bold = #ffffff
+#foreground_dim = #888888
+background = #1b1b1b
+#cursor = #dcdccc
+
+# if unset, will reverse foreground and background
+highlight = #2f2f2f
+
+# colors from color0 to color254 can be set
+#color0 = #3f3f3f
+#color1 = #705050
+#color2 = #60b48a
+#color3 = #dfaf8f
+#color4 = #506070
+#color5 = #dc8cc3
+#color6 = #8cd0d3
+#color7 = #dcdccc
+#color8 = #709080
+#color9 = #dca3a3
+#color10 = #c3bf9f
+#color11 = #f0dfaf
+#color12 = #94bff3
+#color13 = #ec93d3
+#color14 = #93e0e3
+
+##black
+#color0 = #111313
+#color8 = #424446
+##red
+#color1 = #9e6b71
+#color9 = #b69094
+##green
+#color2 = #719e6b
+#color10 = #94b690
+##yellow
+#color3 = #9e986c
+#color11 = #b5b18f
+##blue
+#color4 = #6c8b9e
+#color12 = #90a7b6
+##magenta
+#color5 = #986b9e
+#color13 = #b290b6
+##cyan
+#color6 = #6b9e98
+#color14 = #90b6b3
+##white
+#color7 = #b8baba
+#color15 = #cdcfce
+ 
+#!colors ripped from rezza: http://metawire.org/~rezza/index.php
+#black
+color0 = 191919
+color8 = 252525
+#red
+color1 = 803232
+color9 = 982b2b
+#green
+color2 = 5b762f
+color10 = 89b83f
+#brown/yellow
+color3 = aa9943
+color11 = efef60
+#blue
+color4 = 324c80
+color12 = 2b4f98
+#magenta
+color5 = 706c9a
+color13 = 826ab1
+#cyan
+color6 = 92b19e
+color14 = a1cdcd
+#white
+color7 = ffffff
+color15 = dddddd
+
+# Parker Brothers colors
+##black
+#color0 = #322a2c
+#color8 = #46423b
+##red
+#color1 = #79220E
+#color9 = #AA261F
+##green 
+#color2 = #344B1B
+#color10 = #76550F
+##yellow
+##*color3=    #c77920
+#color3 = #B45B00
+#color11 = #B57F02
+##blue
+#color4 = #434045
+#color12 = #908862
+##magenta
+#color5 = #5C1E25
+#color13 = #624A35
+##cyan
+#color6 = #394745
+#color14 = #393E38
+##white
+#color7 = #AE8842
+#color15 = #A59058
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini

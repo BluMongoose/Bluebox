@@ -110,6 +110,34 @@ color14 = a1cdcd
 color7 = ffffff
 color15 = dddddd
 
+## Famicom Colors - rzrscm@gmail.com
+#background: #111111
+#foreground: #f8d8f8
+## Black + DarkGrey
+#color0 = #010101
+#color8 = #787878
+## DarkRed + Red
+#color1 = #f83800
+#color9 = #f87858
+## DarkGreen + Green
+#color2 = #00b800
+#color10 = #58d854
+## DarkYellow + Yellow
+#color3 = #f8b800
+#color11 = #f8d878
+#_#DarkBlue + Blue
+#color4 = #0000fc
+#color12 = #0078f8
+## DarkMagenta + Magenta
+#color5 = #d800cc
+#color13 = #f878f8
+##_DarkCyan + Cyan
+#color6 = #3cbcfc
+#color14 = #a4e4fc
+## LightGrey + White
+#color7 = #bcbcbc
+#color15 = #fcfcfc
+
 # Parker Brothers colors
 ##black
 #color0 = #322a2c

@@ -4,10 +4,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# variables
-export BROWSER="firefox"
-export EDITOR="nano"
-
 # modified commands
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto'
@@ -35,18 +31,18 @@ if [ $UID -ne 0 ]; then
     alias reboot='sudo reboot'
     alias halt='sudo halt'
     alias update='sudo pacman -Syu'
-    alias netcfg='sudo netcfg2'
+    alias netcfg='sudo netcfg'
     alias nano='sudo nano'
 fi
 
 # ls
-alias ls='ls -hF --color=auto'
+alias ls='ls -hF --color=auto --group-directories-first'
 alias lr='ls -R'                    # recursive ls
-alias ll='ls -l'
-alias la='ll -A'
-alias lx='ll -BX'                   # sort by extension
-alias lz='ll -rS'                   # sort by size
-alias lt='ll -rt'                   # sort by date
+alias ll='ls -l --group-directories-first'
+alias la='ll -A --group-directories-first'
+alias lx='ll -BX --group-directories-first'                   # sort by extension
+alias lz='ll -rS --group-directories-first'                   # sort by size
+alias lt='ll -rt --group-directories-first'                   # sort by date
 alias lm='la | more'
 
 # safety features
@@ -74,13 +70,18 @@ alias pacm="makepkg -fci"    # '[m]ake'           - make package from PKGBUILD f
 alias pacusr="yaourt -Qqet"  # '[usr] installed'  - end user install list
 
 # Video Commands
+alias mplayer="mplayer $1 -softvol -softvol-max 300"
 alias futurama="mplayer -shuffle -playlist ~/Playlists/futurama.m3u"
 alias familyguy="mplayer -shuffle -playlist ~/Playlists/familyguy.m3u"
 alias simpsons="mplayer -shuffle -playlist ~/Playlists/simpsons.m3u"
 alias americandad="mplayer -shuffle -playlist ~/Playlists/americandad.m3u"
+alias bobsburgers="mplayer -softvol -softvol-max 300 -shuffle -playlist ~/Playlists/bobsburgers.m3u"
 
 # Suspend
-alias suspend="sudo pm-suspend"
+alias suspend="su -c 'echo "mem" >/sys/power/state'"
+
+# VNC Server
+alias vnc="x11vnc -forever -rfbauth ~/.vnc/passwd"
 
 # Check Mem Use
 alias memfree="free -m -l"
@@ -108,15 +109,93 @@ sudo mount -t iso9660 -o ro,loop=/dev/loop0 $1 /mnt/disk/
 # Mount a 1GB ramdisk in /mnt/tmp/
 alias ramdisk="sudo mount -t ramfs -o nodev,nosuid,noexec,nodiratime,size=1024M none /mnt/tmp/"
 
-# Bring up the net
-alias netup="sudo rc.d start network"
-alias netdown="sudo rc.d stop network"
-alias netrestart="sudo rc.d restart network"
-
 # Test for dynamic text width
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-PS1='[\u@\h \W]\$ '
+alias nfsmount='sudo systemctl start nfsd.service rpc-idmapd.service && sudo mount 192.168.2.22:/mnt /mnt/server_root'
+alias nfsumount='sudo systemctl stop nfsd.service rpc-idmapd.service && sudo umount /mnt/server_root'
+
+# simplified systemd command, for instance "sudo systemctl stop xxx" - > "0.stop xxx"
+if ! systemd-notify --booted;
+then  # for not systemd
+    0.start() {
+        sudo rc.d start $@
+    }
+
+    0.restart() {
+        sudo rc.d restart $@
+    }
+
+    0.stop() {
+        sudo rc.d stop $@
+    }
+else
+# start systemd service
+    0.start() {
+        sudo systemctl start $@
+    }
+# restart systemd service
+    0.restart() {
+        sudo systemctl restart $@
+    }
+# stop systemd service
+    0.stop() {
+        sudo systemctl stop $@
+    }
+# enable systemd service
+    0.enable() {
+        sudo systemctl enable $@
+    }
+# disable a systemd service
+    0.disable() {
+        sudo systemctl disable $@
+    }
+# show the status of a service
+    0.status() {
+        systemctl status $@
+    }
+# reload a service configuration
+    0.reload() {
+        sudo systemctl reload $@
+    }
+# list all running service
+    0.list() {
+        systemctl
+    }
+# list all failed service
+    0.failed () {
+        systemctl --failed
+    }
+# list all systemd available unit files
+    0.list-files() {
+        systemctl list-unit-files
+    }
+# check the log
+    0.log() {
+        sudo journalctl
+    }
+# show wants
+    0.wants() {
+        systemctl show -p "Wants" $1.target
+    }
+# analyze the system
+    0.analyze() {
+        systemd-analyze $@
+    }
+fi
+
+
+#PS1='[\u@\h \W]\$ '
 #PS1='\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\]\[\e[0;32m\] '
+red="\[\e[0;33m\]"
+yellow="\[\e[0;31m\]"
+
+if [ `id -u` -eq "0" ]; then
+    root="${yellow}"
+else
+    root="${red}"
+fi
+PS1="\[\e[0;37m\]┌─[${root}\u\[\e[0;37m\]][\[\e[0;96m\]\h\[\e[0;37m\]][\[\e[0;32m\]\w\[\e[0;37m\]]\n\[\e[0;37m\]└──╼ \[\e[0m\]"
+PS2="╾──╼"

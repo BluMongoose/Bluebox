@@ -15,12 +15,7 @@ fi
 
 xrdb -merge ~/.Xresources
 xset +fp /usr/share/fonts/local
-awsetbg -c -r ~/Pictures/ &
+xset fp rehash
 mpd &
-compton -cCGbf -o 0.75 -t 0.02 -l 0.02 -r 2.5
 urxvtd -q -f -o 
-urxvtc -e htop -d 10 &
-urxvtc -e finch &
-numlockx &
-exec awesome
-
+exec i3 

@@ -25,7 +25,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec urxvtc
 
 # new window default border
 new_window 1pixel
@@ -160,10 +160,7 @@ bindsym $mod+r mode "resize"
 bar {
         position top
         status_command $HOME/.scripts/conky-i3bar
-        # font pango:tamsynmod-medium 8
-        # font pango:tamsynmod 12 
         font -misc-tamsynmod-medium-r-*-*-14-*-*-*-*-*-iso8859-1
-        # font pango:Tamsyn 8
         mode dock
 
         colors {
@@ -196,17 +193,17 @@ bindsym XF86AudioPrev exec mpc prev
 
 # Autostart programs
 exec /usr/bin/feh --bg-max /home/blue/Pictures/crSqt.jpg
-exec termite --name=htop -e htop
-exec --no-startup-id termite --name=finch -e finch
+exec --no-startup-id urxvtc -title=htop -e htop
+exec --no-startup-id urxvtc -title=finch -e finch
 exec --no-startup-id numlockx
-exec --no-startup-id termite --name=termite_scratchpad
+exec --no-startup-id urxvtc -title scratchpad
 exec firefox
 
 # Window control
-assign [class="^Termite$" instance="^htop$"] → 1:sys
-assign [class="Firefox"] → 2:web
+assign [class="^URxvt$" title="^htop$"] 1:sys
+assign [class="Firefox"] 2:web
 for_window [title="Library"] floating enable
 for_window [title="Downloads"] floating enable
 for_window [title="Firefox Preferences"] floating enable
-assign [class="^Termite$" instance="^finch$"] → 3:chat
-for_window [class="^Termite$" instance="^termite_scratchpad$"] move to scratchpad
+assign [class="^URxvt$" title="^finch$"] → 3:chat
+for_window [class="^URxvt$" title="^scratchpad$"] move to scratchpad

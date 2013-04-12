@@ -90,9 +90,6 @@ alias memfree="free -m -l"
 complete -cf sudo
 complete -cf man
 
-# Check outside ip
-alias checkip="echo `wget -q -O - http://automation.whatismyip.com/n09230945.asp`"
-
 # Screen capture at 1920x1080
 alias screencap="ffmpeg -f x11grab -s 1920x1080 -r 15 -i :0 -vcodec libx264 -vpre normal -threads 0 ~/screencap.mp4"
 
@@ -113,7 +110,10 @@ alias ramdisk="sudo mount -t ramfs -o nodev,nosuid,noexec,nodiratime,size=1024M 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+# Auto cd
+shopt -s autocd
 
+# Start nfs and mount nfs server
 alias nfsmount='sudo systemctl start nfsd.service rpc-idmapd.service && sudo mount 192.168.2.22:/mnt /mnt/server_root'
 alias nfsumount='sudo systemctl stop nfsd.service rpc-idmapd.service && sudo umount /mnt/server_root'
 

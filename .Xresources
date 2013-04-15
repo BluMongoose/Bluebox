@@ -2,9 +2,9 @@ Xcursor.theme:		    Simple-and-Soft
 urxvt*urgentOnBell:     true
 URxvt.loginShell:	    true
 URxvt.depth:		    32
-URxvt.background:	    #121212
-URxvt.foreground:       gray90
-URxvt.color7:           gray90
+*.background:	    rgb:12/12/12
+*.foreground:       gray90
+!URxvt.color7:           gray90
 URxvt.colorBD:          #ffffff
 URxvt.cursorColor:      #e0e080
 URxvt.throughColor:     #8080f0
@@ -32,11 +32,19 @@ URxvt.boldFont: -*-terminus-bold-r-*-*-14-*-*-*-*-*-iso10646-1
 URxvt.italicFont: -*-terminus-medium-r-*-*-14-*-*-*-*-*-iso10646-1
 URxvt.boldItalicFont: -*-terminus-bold-r-*-*-14-*-*-*-*-*-iso10646-1
 
+!!!!!!!!!!!!!XTERM!!!!!!!!!!!!!!!!!!!
+xterm*faceName: Bitstream vera sans mono
+xterm*faceSize: 10
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+xterm.borderWidth: 0
+!!!!!!!!!!!!!XTERM!!!!!!!!!!!!!!!!!!!
+
 ! Extensions
-urxvt*perl-lib:        /usr/lib/urxvt/perl/
-urxvt*perl-ext-common: default,matcher,searchable-scrollback
-urxvt*urlLauncher:     /usr/bin/firefox
-urxvt*matcher.button:  1
+URxvt*perl-lib:        /usr/lib/urxvt/perl/
+URxvt*perl-ext-common: default,matcher,searchable-scrollback
+URxvt*urlLauncher:     firefox
+URxvt*matcher.button:  1
 
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
@@ -88,30 +96,30 @@ XCalc*ShapeStyle:             rectangle
 !colors ripped from rezza: http://metawire.org/~rezza/index.php
 !*foreground:     rgb:dddddd
 !*background:     rgb:222222
-black
-URxvt*color0:         #191919
-URxvt*color8:         #252525
-red
-URxvt*color1:         #803232
-URxvt*color9:         #982b2b
-green
-URxvt*color2:         #5b762f
-URxvt*color10:        #89b83f
-brownyellow
-URxvt*color3:         #aa9943
-URxvt*color11:        #efef60
-blue
-URxvt*color4:         #324c80
-URxvt*color12:        #2b4f98
-magenta
-URxvt*color5:         #706c9a
-URxvt*color13:        #826ab1
-cyan
-URxvt*color6:         #92b19e
-URxvt*color14:        #a1cdcd
-white
-URxvt*color7:         #ffffff
-URxvt*color15:        #dddddd
+!black
+*color0:         rgb:19/19/19
+*color8:         rgb:25/25/25
+!red
+*color1:         rgb:80/32/32
+*color9:         rgb:98/2b/2b
+!green
+*color2:         rgb:5b/76/2f
+*color10:        rgb:89/b8/3f
+!brownyellow
+*color3:         rgb:aa/99/43
+*color11:        rgb:ef/ef/60
+!blue
+*color4:         rgb:32/4c/80
+*color12:        rgb:2b/4f/98
+!magenta
+*color5:         rgb:70/6c/9a
+*color13:        rgb:82/6a/b1
+!cyan
+*color6:         rgb:92/b1/9e
+*color14:        rgb:a1/cd/cd
+!white
+*color7:         rgb:ff/ff/ff
+*color15:        rgb:dd/dd/dd
 
 !black
 !URxvt*color0:      #000000

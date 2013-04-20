@@ -57,15 +57,14 @@ show_graph_range no
 short_units yes
 
 TEXT
-[ { "full_text" : "[MPD:${mpd_status}]" , "color" : "\#9c9c9c" },
-  { "full_text" : "${if_mpd_playing}♪ ${mpd_artist}-${endif}" , "color" : "\#73b6d6" } , { "full_text" : "${if_mpd_playing}${mpd_title}${endif}" , "color" : "\#73b6d6" },
+[ { "full_text" : "[ê${if_mpd_playing} ${mpd_artist} - ${mpd_title}${endif}]" , "color" : "\#73b6d6"}, 
   { "full_text" : "[¹ ${kernel}]" , "color" : "\#73b6d6" },
   { "full_text" : "[¸ ${texeci 3600 checkupdates.sh | wc -l}]", "color" : "\#73b6d6" },
   { "full_text" : "[¨ ${fs_used /}/${fs_size /}]" , "color" : "\#73b6d6" },
   { "full_text" : "[© ${fs_used /home}/${fs_size /home}]" , "color" : "\#73b6d6" },
   { "full_text" : "[Î ${mem}]" , "color" : "\#73b6d6" },
   { "full_text" : "[¯ ${loadavg}]" , "color" : "\#73b6d6" },
-  { "full_text" : "[í ${exec amixer get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}%]" , "color" : "\#73b6d6"},
+  { "full_text" : "[í ${exec amixer get Master | egrep -o "[0-9]+%" }]" , "color" : "\#73b6d6"},
   { "full_text" : "[Ú ${downspeedf} Û ${upspeedf}]" , "color" : "\#73b6d6" },
   { "full_text" : "[${time %F É %H:%M}]" , "color" : "\#73b6d6"}
 ],

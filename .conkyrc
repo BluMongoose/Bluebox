@@ -23,10 +23,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-alignment top_right
-background no
+#alignment top_right
+#background no
 #border_width 1
-cpu_avg_samples 2
+#cpu_avg_samples 2
 #default_color white
 #default_outline_color white
 #default_shade_color white
@@ -34,40 +34,122 @@ cpu_avg_samples 2
 #draw_graph_borders yes
 #draw_outline no
 #draw_shades no
-use_xft yes
-xftfont Tamsynmod:size=8
+#use_xft yes
+#xftfont Tamsynmod:size=8
 #xftfont DejaVu Sans Mono:size=12
 #gap_x 5
 #gap_y 60
 #minimum_size 5 5
-net_avg_samples 2
-no_buffers yes
+#net_avg_samples 2
+#no_buffers yes
+out_to_x no
 out_to_console yes
-out_to_stderr no
-extra_newline no
-own_window no
-own_window_class Conky
-own_window_type desktop
-stippled_borders 0
+#out_to_stderr no
+#extra_newline no
+#own_window no
+#own_window_class Conky
+#own_window_type desktop
+#stippled_borders 0
 update_interval 2.0
-uppercase no
-use_spacer none
-show_graph_scale no
-show_graph_range no
+#uppercase no
+#use_spacer none
+#show_graph_scale no
+#show_graph_range no
 short_units yes
 
 TEXT
-[ { "full_text" : "[ê${if_mpd_playing} ${mpd_artist} - ${mpd_title}${endif}]" , "color" : "\#cc0000"}, 
-  { "full_text" : "[¹ ${kernel}]" , "color" : "\#34e2e2" },
-  { "full_text" : "[¸ ${texeci 3600 checkupdates.sh | wc -l}]", "color" : "\#efef60" },
-  { "full_text" : "[¨ ${fs_used /}/${fs_size /}]" , "color" : "\#826ab1" },
-  { "full_text" : "[© ${fs_used /home}/${fs_size /home}]" , "color" : "\#8ae234" },
-  { "full_text" : "[Î ${mem}]" , "color" : "\#FF8d80" },
-  { "full_text" : "[¯ ${loadavg}]" , "color" : "\#B6e354" },
-  { "full_text" : "[í ${exec amixer get Master | egrep -o "[0-9]+%" }]" , "color" : "\#587aa4"},
-  { "full_text" : "[Ú ${downspeedf} Û ${upspeedf}]" , "color" : "\#46a4ff" },
-  { "full_text" : "[${time %F É %H:%M}]" , "color" : "\#73b6d6"}
+
+[\
+# Kernel:
+{"full_text":"KERNEL","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${kernel}","color":"\#EEEEEE","separator":false,"separator_block_width":5},\
+# Updates
+{"full_text":"UPDATES","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${texeci 3600 /usr/bin/checkupdates | wc -l}","color":"\#73B6D6","separator":false,"separator_block_width":5},\
+# CPU temperature:
+{"full_text":"CPU","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${if_match ${hwmon 0 temp 2}<45}${hwmon 0 temp 2}","color":"\#73B6D6","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 0 temp 2}<50}${hwmon 0 temp 2}","color":"\#F0DC64","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 0 temp 2}<55}${hwmon 0 temp 2}","color":"\#FF9933","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 0 temp 2}>=55}${hwmon 0 temp 2}","color":"\#FF3333","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${endif}${endif}${endif}${endif}"},\
+{"full_text":"C°","color":"\#EEEEEE","separator":false,"separator_block_width":5},\
+# GFX temperature:
+{"full_text":"GFX","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${if_match ${hwmon temp 1}<50}${hwmon temp 1}","color":"\#73B6D6","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon temp 1}<55}${hwmon temp 1}","color":"\#F0DC64","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon temp 1}<60}${hwmon temp 1}","color":"\#FF9933","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon temp 1}>=60}${hwmon temp 1}","color":"\#FF3333","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${endif}${endif}${endif}${endif}"},\
+{"full_text":"C°","color":"\#EEEEEE","separator":false,"separator_block_width":5},\
+# Download:
+{"full_text":"DOWN","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${if_match ${downspeedf eth0}<100}${downspeed eth0}","color":"\#73B6D6","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf eth0}<300}${downspeed eth0}","color":"\#68B1E8","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf eth0}<700}${downspeed eth0}","color":"\#DB70B8","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf eth0}<1000}${downspeed eth0}","color":"\#9470DB","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf eth0}>=1000}${downspeed eth0}","color":"\#FF3333","separator":false,"separator_block_width":5},\
+{"full_text":"${endif}${endif}${endif}${endif}${endif}"},\
+# Upload:
+{"full_text":"UP","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${if_match ${upspeedf eth0}<15}${upspeed eth0}","color":"\#73B6D6","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${upspeedf eth0}<35}${upspeed eth0}","color":"\#9470DB","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${upspeedf eth0}>=35}${upspeed eth0}","color":"\#FF3333","separator":false,"separator_block_width":5},\
+{"full_text":"${endif}${endif}${endif}"},\
+# Memory:
+{"full_text":"MEM","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${if_match ${memperc}<30}${mem}","color":"\#73B6D6","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${memperc}<60}${mem}","color":"\#F0DC64","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${memperc}<85}${mem}","color":"\#FF9933","separator":false,"separator_block_width":5},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${memperc}>=85}${mem}","color":"\#FF3333","separator":false,"separator_block_width":5},\
+{"full_text":"${endif}${endif}${endif}${endif}"},\
+# CPU:
+{"full_text":"CPU","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${if_match ${cpu cpu0}<25}${cpu cpu0}","color":"\#73B6D6","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${cpu cpu0}<50}${cpu cpu0}","color":"\#F0DC64","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${cpu cpu0}<75}${cpu cpu0}","color":"\#FF9933","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${cpu cpu0}<=100}${cpu cpu0}","color":"\#FF3333","separator":false,"separator_block_width":0},\
+{"full_text":"${endif}${endif}${endif}${endif}"},\
+{"full_text":"%","color":"\#EEEEEE","separator":false,"separator_block_width":5},\
+# Date:
+{"full_text":"DATE","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${time %D}","color":"\#EEEEEE","separator":false,"separator_block_width":5},\
+# Time:
+{"full_text":"TIME","color":"\#888888","separator":false,"separator_block_width":4},\
+{"full_text":"${time %R}","color":"\#EEEEEE","separator":false}\
 ],
+
+#[ { "full_text" : "[ê${if_mpd_playing} ${mpd_artist} - ${mpd_title}${endif}]" , "color" : "\#cc0000"}, 
+#  { "full_text" : "[¹ ${kernel}]" , "color" : "\#34e2e2" },
+#  { "full_text" : "[¸ ${texeci 3600 checkupdates.sh | wc -l}]", "color" : "\#efef60" },
+#  { "full_text" : "[¨ ${fs_used /}/${fs_size /}]" , "color" : "\#826ab1" },
+#  { "full_text" : "[© ${fs_used /home}/${fs_size /home}]" , "color" : "\#8ae234" },
+#  { "full_text" : "[Î ${mem}]" , "color" : "\#FF8d80" },
+#  { "full_text" : "[¯ ${loadavg}]" , "color" : "\#B6e354" },
+#  { "full_text" : "[í ${exec amixer get Master | egrep -o "[0-9]+%" }]" , "color" : "\#587aa4"},
+#  { "full_text" : "[Ú ${downspeedf} Û ${upspeedf}]" , "color" : "\#46a4ff" },
+#  { "full_text" : "[${time %F É %H:%M}]" , "color" : "\#73b6d6"}
+#],
 
 #[
 #${scroll 16 $nodename - $sysname $kernel on $machine | }

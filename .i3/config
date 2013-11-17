@@ -100,11 +100,11 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1:sys
-bindsym $mod+2 workspace 2:web
-bindsym $mod+3 workspace 3:chat
-bindsym $mod+4 workspace 4:video
-bindsym $mod+5 workspace 5:misc
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -112,11 +112,11 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:sys
-bindsym $mod+Shift+2 move container to workspace 2:web
-bindsym $mod+Shift+3 move container to workspace 3:chat
-bindsym $mod+Shift+4 move container to workspace 4:video
-bindsym $mod+Shift+5 move container to workspace 5:misc
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -125,7 +125,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # border colors:         border:  bg:     text:   indicator:
 client.focused           #73B6D6  #73B6D6 #121212 #543857
-client.focused_inactive  #121212  #121212 #121212 #4D4D4D
+client.focused_inactive  #121212  #121212 #888888 #4D4D4D
 client.unfocused         #121212  #73B6D6 #888888 #222222
 client.urgent            #87292E  #87292E #FFFFFF #87292E
 
@@ -192,7 +192,7 @@ bar {
            # class              border  backgr.  text
             focused_workspace  #121212 #76B6D6 #121212
             active_workspace   #121212 #76B6D6 #121212
-            inactive_workspace #121212 #121212 #9c9c9c
+            inactive_workspace #121212 #121212 #888888
             urgent_workspace   #121212 #121212 #ed3764
         }
 }
@@ -201,8 +201,8 @@ bindsym $mod+f exec thunar
 bindsym $mod+b exec firefox 
 
 # Scratch Pad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+grave move scratchpad
+bindsym $mod+grave scratchpad show
 
 # Audio keys
 bindsym XF86AudioRaiseVolume exec amixer set Master 5.0%+ unmute
@@ -223,12 +223,12 @@ exec --no-startup-id firefox
 exec --no-startup-id thunar --daemon
 
 # Window control
-assign [class="^URxvt$" title="^htop$"] 1:sys
-assign [class="Firefox"] 2:web
+assign [class="^URxvt$" title="^htop$"] 1
+assign [class="Firefox"] 2
 for_window [title="Library"] floating enable
 for_window [title="Downloads"] floating enable
 for_window [title="Firefox Preferences"] floating enable
-assign [class="^URxvt$" title="^finch$"] → 3:chat
+assign [class="^URxvt$" title="^finch$"] → 3
 for_window [class="^URxvt$" title="^scratchpad$"] move to scratchpad
 assign [title="Minecraft 1.6.4"] 5:misc
 for_window [title="Minecraft 1.6.4"] floating enable

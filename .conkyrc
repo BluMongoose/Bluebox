@@ -40,8 +40,8 @@
 #gap_x 5
 #gap_y 60
 #minimum_size 5 5
-#net_avg_samples 2
-#no_buffers yes
+net_avg_samples 2
+no_buffers yes
 out_to_x no
 out_to_console yes
 #out_to_stderr no
@@ -92,23 +92,23 @@ TEXT
 {"full_text":"C°","color":"\#EEEEEE","separator":false,"separator_block_width":5},\
 # Download:
 {"full_text":"DOWN","color":"\#888888","separator":false,"separator_block_width":4},\
-{"full_text":"${if_match ${downspeedf eth0}<100}${downspeed eth0}","color":"\#73B6D6","separator":false,"separator_block_width":5},\
+{"full_text":"${if_match ${downspeedf eth0}<100}${downspeedf eth0}","color":"\#73B6D6","separator":false,"separator_block_width":5},\
 {"full_text":"${else}"},\
-{"full_text":"${if_match ${downspeedf eth0}<300}${downspeed eth0}","color":"\#68B1E8","separator":false,"separator_block_width":5},\
+{"full_text":"${if_match ${downspeedf eth0}<300}${downspeedf eth0}","color":"\#68B1E8","separator":false,"separator_block_width":5},\
 {"full_text":"${else}"},\
-{"full_text":"${if_match ${downspeedf eth0}<700}${downspeed eth0}","color":"\#DB70B8","separator":false,"separator_block_width":5},\
+{"full_text":"${if_match ${downspeedf eth0}<700}${downspeedf eth0}","color":"\#DB70B8","separator":false,"separator_block_width":5},\
 {"full_text":"${else}"},\
-{"full_text":"${if_match ${downspeedf eth0}<1000}${downspeed eth0}","color":"\#9470DB","separator":false,"separator_block_width":5},\
+{"full_text":"${if_match ${downspeedf eth0}<1000}${downspeedf eth0}","color":"\#9470DB","separator":false,"separator_block_width":5},\
 {"full_text":"${else}"},\
-{"full_text":"${if_match ${downspeedf eth0}>=1000}${downspeed eth0}","color":"\#FF3333","separator":false,"separator_block_width":5},\
+{"full_text":"${if_match ${downspeedf eth0}>=1000}${downspeedf eth0}","color":"\#FF3333","separator":false,"separator_block_width":5},\
 {"full_text":"${endif}${endif}${endif}${endif}${endif}"},\
 # Upload:
 {"full_text":"UP","color":"\#888888","separator":false,"separator_block_width":4},\
-{"full_text":"${if_match ${upspeedf eth0}<15}${upspeed eth0}","color":"\#73B6D6","separator":false,"separator_block_width":5},\
+{"full_text":"${if_match ${upspeedf eth0}<15}${upspeedf eth0}","color":"\#73B6D6","separator":false,"separator_block_width":5},\
 {"full_text":"${else}"},\
-{"full_text":"${if_match ${upspeedf eth0}<35}${upspeed eth0}","color":"\#9470DB","separator":false,"separator_block_width":5},\
+{"full_text":"${if_match ${upspeedf eth0}<35}${upspeedf eth0}","color":"\#9470DB","separator":false,"separator_block_width":5},\
 {"full_text":"${else}"},\
-{"full_text":"${if_match ${upspeedf eth0}>=35}${upspeed eth0}","color":"\#FF3333","separator":false,"separator_block_width":5},\
+{"full_text":"${if_match ${upspeedf eth0}>=35}${upspeedf eth0}","color":"\#FF3333","separator":false,"separator_block_width":5},\
 {"full_text":"${endif}${endif}${endif}"},\
 # Memory:
 {"full_text":"MEM","color":"\#888888","separator":false,"separator_block_width":4},\

@@ -18,4 +18,5 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 mpd &
 urxvtd -q -f -o 
+dunst &
 exec i3 
